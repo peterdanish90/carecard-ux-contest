@@ -1,4 +1,4 @@
-## Care Card Renderer
+## Care Card UX contest
 
 Care card renderer is a boilerplate for our card framework. To make it easy for participants, 
 we created two repositories, card renderer and a smaple card application using the card renderer.
