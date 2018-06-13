@@ -11,7 +11,7 @@ we created two repositories, card renderer and a smaple card application using t
 4. Send us your publish link for Expo.
 
 ## Limitation
-1. You need to develop one card per repo.
+1. You can develop more then one cards by copying the Card renderer and adding each in separate folders.
 2. One card can have more than one view.
 2. You can use JSON objects to mock data that will be fetched from a server.
 3. You can use API's such as Google Maps.
