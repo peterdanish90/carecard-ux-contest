@@ -1,20 +1,20 @@
 ## Care Card UX contest
 
-Care card renderer is a boilerplate for our card framework. To make it easy for participants, 
-we created two repositories, card renderer and a smaple card application using the card renderer.
+The Card renderer is a boilerplate for our card framework. To make it easy for participants, we created two repositories: card renderer and a sample card application using the card renderer.
 
 ### How to participate?
 
 1. Clone `care-card-renderer` repository.
-2. Develop your card using this repository, (You don;t need to change anything except the card related components)
-3. Push your changes to your assigned private repository and publish the app to Expo.
-4. Send us your publish link for Expo.
+2. According to the UX design you prepared develop your card using this repository. You don’t need to change anything except the card-related components.
+3. Push your changes to your assigned private repository and publish the app to Expo
+4. Send us your published link for Expo.
+
 
 ## Limitation
-1. You can develop more then one cards by copying the Card renderer and adding each in separate folders.
+1. You can develop more then one card by copying the Card renderer and adding each to a separate folder.
 2. One card can have more than one view.
-2. You can use JSON objects to mock data that will be fetched from a server.
-3. You can use API's such as Google Maps.
+3. You can use JSON objects to mock data that will be fetched from a server.
+3. You can use APIs such as Google Maps.
 
 ### Libraries we use
 
