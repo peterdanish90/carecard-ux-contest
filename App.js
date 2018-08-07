@@ -1,7 +1,7 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Header } from 'react-native-elements'
-import Card from './src/Card'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Header } from 'react-native-elements';
+import RootNavigator from './src/navigator';
 
 export default class App extends React.Component {
   render() {
@@ -12,7 +12,7 @@ export default class App extends React.Component {
           statusBarProps={{hidden: true}}
           backgroundColor="transparent"
         />
-        <Card/>
+        <RootNavigator />
       </View>
     );
   }
