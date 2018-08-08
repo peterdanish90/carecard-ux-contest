@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import * as Animatable from 'react-native-animatable';
+import Swiper from 'react-native-swiper';
 import { Button } from "react-native-elements";
+import Header from '../../components/Header';
 import { View, Text, Image } from 'react-native';
 import CardButtons from '../../components/CardButtons';
 import style from './style';
 import { animojis } from '../../local';
+import CaptionImage from '../../components/CaptionImage';
+import { CARDS_NAME } from '../../constant';
+import { Colors } from '../../theme';
 
 const flip = {
   0: {
@@ -20,7 +25,8 @@ class ChooseAvatar extends Component {
     super()
     this.state = {
       isFlipping: false,
-      isFront: true
+      isFront: true,
+      animojis: Array.from(animojis),
     }
   }
 
@@ -41,11 +47,37 @@ class ChooseAvatar extends Component {
           {!this.state.isFlipping && (
             <CardButtons flip={this.handleRotate}/>
           )}
-          <Text>Choose Avatar</Text>
-          <Button
-            title="GOTO 2"
-            onPress={() => this.props.navigation.navigate("MyMood")}
+          <Header
+            title="CHOOSE YOUR AVATAR"
           />
+          <View
+            style={{
+              height: 250,
+              alignSelf: 'stretch',
+              backgroundColor: 'transparent',
+            }}
+          >
+            <Swiper
+              showsButtons={false}
+              loop
+              activeDotStyle={{
+                backgroundColor: Colors.primaryColor,
+              }}
+            >
+              {
+                this.state.animojis.map((animoji, index) => {
+                  return (
+                    <CaptionImage
+                      key={animoji.face_acronym}
+                      animoji={animoji}
+                      onPress={animojiData => this.props.navigation.navigate(CARDS_NAME.my_mood, { animoji: animojiData })}
+                    />
+                  );
+                })
+
+              }
+            </Swiper>
+          </View>
         </Animatable.View>
       </View>
     )

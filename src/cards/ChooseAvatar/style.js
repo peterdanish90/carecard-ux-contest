@@ -18,6 +18,28 @@ const style = StyleSheet.create({
     },
     elevation: 5,
     zIndex: 5
+  },
+  slide: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: 'black',
+    fontSize: 18,
+    padding: 10,
   }
 })
 
