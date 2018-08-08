@@ -54,9 +54,7 @@ class Reward extends Component {
             <Text style={style.message}>{'Points earned!'}</Text>
           </View>
           <View style={style.messageContainer}>
-            <Text style={style.message}>{`Keep on selecting
-              your mood everyday to exchange
-              each 10 points to 10 solve`}</Text>
+            <Text style={style.message}> Keep on selecting your mood everyday to exchange each 10 points to 10 solve. </Text>
           </View>
           <View style={style.buttonContainer}>
             <Button
