@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import * as Animatable from 'react-native-animatable';
-import { Button } from "react-native-elements";
-import { View, Text } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import CardButtons from '../../components/CardButtons';
-import style from './style'
+import style from './style';
+import { animojis } from '../../local';
+import Header from '../../components/Header';
+import CaptionImage from '../../components/CaptionImage';
+import { CARDS_NAME } from '../../constant';
 
 const flip = {
   0: {
@@ -15,11 +18,12 @@ const flip = {
 }
 
 class MyMood extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       isFlipping: false,
-      isFront: true
+      isFront: true,
+      animoji: props.navigation.state.params.animoji,
     }
   }
 
@@ -40,11 +44,33 @@ class MyMood extends Component {
           {!this.state.isFlipping && (
             <CardButtons flip={this.handleRotate}/>
           )}
-          <Text>My Mood today</Text>
-          <Button
-            title="GOTO 2"
-            onPress={() => this.props.navigation.navigate("MyMood")}
+          <Header
+            style={{ height: 100 }}
+            title="MY MOOD TODAY"
           />
+          <View style={style.body}>
+          <ScrollView>
+            <View style={style.innerBody}>
+              {
+                this.state.animoji.moods.map(mood => {
+                  return(
+                    <CaptionImage
+                      key={mood.mood_acronym}
+                      animoji={mood}
+                      // onPress={activeMood => this.props.navigation.navigate(CARDS_NAME.active_mood, {
+                      //   activeMood,
+                      //   animoji: this.state.animoji,
+                      // })}
+                      containerStyle={style.iconContainer}
+                      iconStyle={style.icon}
+                      textStyle={style.iconCaption}
+                    />
+                  );
+                })
+              }
+            </View>
+          </ScrollView>
+          </View>
         </Animatable.View>
       </View>
     )
