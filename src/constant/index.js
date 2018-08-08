@@ -83,3 +83,8 @@ export const MOOD_LABELS = {
     message: "Enjoy your day",
   },
 };
+
+export const CARDS_NAME = {
+  choose_avatar: 'ChooseAvatar',
+  my_mood: 'MyMood',
+}
