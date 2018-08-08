@@ -44,42 +44,42 @@ export const FACES = {
 export const MOOD_LABELS = {
   happy: {
     mood_acronym: "happy",
-    label: "Happy",
+    name: "Happy",
     message: "Enjoy your day",
   },
   sad: {
     mood_acronym: "sad",
-    label: "Sad",
+    name: "Sad",
     message: "Enjoy your day",
   },
   stressed: {
     mood_acronym: "stressed",
-    label: "Stressed",
+    name: "Stressed",
     message: "Enjoy your day",
   },
   depressed: {
     mood_acronym: "depressed",
-    label: "Depressed",
+    name: "Depressed",
     message: "Enjoy your day",
   },
   angry: {
     mood_acronym: "angry",
-    label: "Angry",
+    name: "Angry",
     message: "Enjoy your day",
   },
   afraid: {
     mood_acronym: "afraid",
-    label: "Afraid",
+    name: "Afraid",
     message: "Enjoy your day",
   },
   lonely: {
     mood_acronym: "lonely",
-    label: "Lonely",
+    name: "Lonely",
     message: "Enjoy your day",
   },
   loved: {
     mood_acronym: "loved",
-    label: "Loved",
+    name: "Loved",
     message: "Enjoy your day",
   },
 };
@@ -87,4 +87,5 @@ export const MOOD_LABELS = {
 export const CARDS_NAME = {
   choose_avatar: 'ChooseAvatar',
   my_mood: 'MyMood',
+  active_mood: 'ActiveMood',
 }
