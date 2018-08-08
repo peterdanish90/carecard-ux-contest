@@ -71,8 +71,8 @@ class Reward extends Component {
                 borderRadius: 20,
               }}
               onPress={() => this.props.navigation.navigate(CARDS_NAME.reward, {
-                myMood: props.navigation.state.params.myMood,
-                animoji: props.navigation.state.params.animoji,
+                myMood: this.props.navigation.state.params.myMood,
+                animoji: this.props.navigation.state.params.animoji,
               })}
             />
           </View>
