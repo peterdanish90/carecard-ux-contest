@@ -88,4 +88,6 @@ export const CARDS_NAME = {
   choose_avatar: 'ChooseAvatar',
   my_mood: 'MyMood',
   active_mood: 'ActiveMood',
+  reward: 'Reward',
+  my_balance: 'MyBalance',
 }

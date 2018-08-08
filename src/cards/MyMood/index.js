@@ -57,8 +57,8 @@ class MyMood extends Component {
                     <CaptionImage
                       key={mood.mood_acronym}
                       animoji={mood}
-                      onPress={activeMood => this.props.navigation.navigate(CARDS_NAME.active_mood, {
-                        activeMood,
+                      onPress={myMood => this.props.navigation.navigate(CARDS_NAME.active_mood, {
+                        myMood,
                         animoji: this.state.animoji,
                       })}
                       containerStyle={style.iconContainer}

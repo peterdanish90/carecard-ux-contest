@@ -18,13 +18,13 @@ const flip = {
   }
 }
 
-class ActiveMood extends Component {
+class Reward extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isFlipping: false,
       isFront: true,
-      myMood: props.navigation.state.params.activeMood,
+      myMood: props.navigation.state.params.myMood,
       animoji: props.navigation.state.params.animoji,
     }
   }
@@ -60,7 +60,7 @@ class ActiveMood extends Component {
           </View>
           <View style={style.buttonContainer}>
             <Button
-              title="View Record"
+              title="View Reward"
               textStyle={{ fontSize: 16 }}
               buttonStyle={{
                 height: 40,
@@ -70,7 +70,10 @@ class ActiveMood extends Component {
                 justifyContent: 'center',
                 borderRadius: 20,
               }}
-              // onPress={() => null}
+              onPress={() => this.props.navigation.navigate(CARDS_NAME.reward, {
+                myMood: props.navigation.state.params.myMood,
+                animoji: props.navigation.state.params.animoji,
+              })}
             />
           </View>
         </Animatable.View>
@@ -79,4 +82,4 @@ class ActiveMood extends Component {
   }
 }
 
-export default ActiveMood;
+export default Reward;
