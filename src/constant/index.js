@@ -13,11 +13,11 @@ export const FACES = {
   },
   cute_koala: {
     face_acronym: "cute_koala",
-    name: "Cute Koala",
+    name: "Koala",
   },
   cute_tiger: {
     face_acronym: "cute_tiger",
-    name: "Cute Tiger",
+    name: "Tiger",
   },
   dog: {
     face_acronym: "dog",
@@ -45,42 +45,42 @@ export const MOOD_LABELS = {
   happy: {
     mood_acronym: "happy",
     name: "Happy",
-    message: "Enjoy your day",
+    message: "Do more of what makes you happy. Positive mind, positive vibes, positive life!",
   },
   sad: {
     mood_acronym: "sad",
     name: "Sad",
-    message: "Enjoy your day",
+    message: "You’re beautiful! Pass it on!",
   },
   stressed: {
     mood_acronym: "stressed",
     name: "Stressed",
-    message: "Enjoy your day",
+    message: "Tough times don’t last, tough people do. Just breathe extra deep and let go!",
   },
   depressed: {
     mood_acronym: "depressed",
     name: "Depressed",
-    message: "Enjoy your day",
+    message: "Hey, cheer up, don’t despair and never lose hope! We’re with you!",
   },
   angry: {
     mood_acronym: "angry",
     name: "Angry",
-    message: "Enjoy your day",
+    message: "No matter how angry you get, you always end up forgiving the people you love!",
   },
   afraid: {
     mood_acronym: "afraid",
     name: "Afraid",
-    message: "Enjoy your day",
+    message: "Don’t be afraid to fail. Failure is another stepping stone for greatness!",
   },
   lonely: {
     mood_acronym: "lonely",
     name: "Lonely",
-    message: "Enjoy your day",
+    message: "Inhale. Exhale. Everything is going to be okay. Just go out and have a good time!",
   },
   loved: {
     mood_acronym: "loved",
     name: "Loved",
-    message: "Enjoy your day",
+    message: "Spread the love and do something good!",
   },
 };
 

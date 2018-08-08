@@ -10,6 +10,7 @@ import { rabbit } from "./rabbit";
 import { raccoon } from "./raccoon";
 
 export const animojis = [
+  panda,
   bear,
   cat,
   chick,
@@ -17,7 +18,6 @@ export const animojis = [
   cute_tiger,
   dog,
   monkey,
-  panda,
   rabbit,
   raccoon,
 ];
