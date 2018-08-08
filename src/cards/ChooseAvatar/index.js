@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import * as Animatable from 'react-native-animatable';
 import Swiper from 'react-native-swiper';
-import { Button } from "react-native-elements";
 import Header from '../../components/Header';
-import { View, Text, Image } from 'react-native';
+import { View } from 'react-native';
 import CardButtons from '../../components/CardButtons';
 import style from './style';
 import { animojis } from '../../local';
