@@ -28,6 +28,11 @@ class Reward extends Component {
     }
   }
 
+  componentDidMount() {
+    global.hayft_solve = 10;
+    global.hayft_points = 250;
+  }
+
   handleRotate = () => {
     this.setState({
       isFlipping: true,
