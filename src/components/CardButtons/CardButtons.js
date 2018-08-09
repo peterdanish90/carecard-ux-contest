@@ -41,7 +41,6 @@ const CardButtons = props => {
         <FIcon
           name="info"
           size={18}
-          onPress={() => alert('Info Button pressed')}
           style={style.buttonIconTopRight}
           color={props.buttons.topRight.disabled ? '#9da4b4' : '#383b42'}
         />
