@@ -6,6 +6,7 @@ import CardButtons from '../../components/CardButtons';
 import style from './style';
 import { Colors } from '../../theme';
 import Header from '../../components/Header';
+import { CARDS_NAME } from '../../constant';
 
 const flip = {
   0: {
@@ -76,9 +77,27 @@ class Reward extends Component {
       <View style={style.container}>
         <Animatable.View animation={this.state.isFlipping ? flip : ''} style={style.cardContainer} duration={1000}>
           {!this.state.isFlipping && (
-            <CardButtons flip={this.handleRotate}/>
+            <CardButtons
+              isShowFAIcon
+              icon={"exchange"}
+              onPressTRC= {this.handleRotate} // info
+              onPressBRC= {this.handleRotate} // flip
+              onPressTLC= {() => this.handleExchange()}
+              onPressBLC= {() =>
+                this.props.navigation.state.params.from === CARDS_NAME.reward ?
+                  this.props.navigation.pop(4) : this.props.navigation.goBack()
+              }
+            />
           )}
-          <Header title="MY BALANCE" />
+          <Header
+            title="MY BALANCE"
+            style={{
+              marginTop: 40,
+              height: 100,
+              justifyContent: 'flex-start',
+              paddingTop: 20,
+            }}
+          />
           <View style={style.balanceContainer}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={style.balanceTypeIcon}>{'★'}</Text>
