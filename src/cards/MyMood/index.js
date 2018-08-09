@@ -42,7 +42,12 @@ class MyMood extends Component {
       <View style={style.container}>
         <Animatable.View animation={this.state.isFlipping ? flip : ''} style={style.cardContainer} duration={1000}>
           {!this.state.isFlipping && (
-            <CardButtons flip={this.handleRotate}/>
+            <CardButtons
+              // flip={this.handleRotate}
+              onPressTRC= {this.handleRotate} // info
+              onPressBRC= {this.handleRotate} // flip
+              onPressBLC= {() => this.props.navigation.goBack()}
+            />
           )}
           <Header
             style={{ height: 100 }}
