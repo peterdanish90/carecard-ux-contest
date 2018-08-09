@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { Button } from "react-native-elements";
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import CardButtons from '../../components/CardButtons';
 import style from './style';
-import { CARDS_NAME } from '../../constant';
 import { Colors } from '../../theme';
 import Header from '../../components/Header';
 
@@ -23,10 +22,19 @@ class Reward extends Component {
     this.state = {
       isFlipping: false,
       isFront: true,
-      // myMood: props.navigation.state.params.activeMood,
-      // animoji: props.navigation.state.params.animoji,
-      points: 340,
-      solve: 10,
+      points: 0,
+      solve: 0,
+      isLoading: false,
+    }
+  }
+
+  componentDidMount() {
+    let points = global.hayft_points
+    if(points !== undefined || points !== null) {
+      this.setState({
+        points: global.hayft_points,
+        solve: global.hayft_solve,
+      });
     }
   }
 
@@ -38,6 +46,29 @@ class Reward extends Component {
     setTimeout(() => {
       this.setState({isFlipping: false})
     }, 1000)
+  }
+
+  handleExchange() {
+    this.setState({
+      isLoading: true,
+    });
+    if(Number.parseInt(this.state.points) >= 10) {
+      setTimeout(() => {
+        global.hayft_solve = global.hayft_solve + 10;
+        global.hayft_points = global.hayft_points - 10;
+        this.setState({
+          points: global.hayft_points,
+          solve: global.hayft_solve,
+          isLoading: false
+        });
+        alert('Successfully Exchanged 10 points!');
+      }, 1500);
+    } else {
+      this.setState({
+        isLoading: false
+      });
+      alert('You dont have enough points!');
+    }
   }
 
   render() {
@@ -62,25 +93,32 @@ class Reward extends Component {
           </View>
           <View style={style.messageContainer}>
             <Text style={style.message}>
-            Congrats! you have {Math.floor(this.state.points / 100.0) * 100}+ points,
+            Congrats! you have {Math.floor(this.state.points / 100.0) * 100} or more points,
             which can exchange into solve. {'\n'}
             Try it now!</Text>
           </View>
           <View style={style.buttonContainer}>
             <Text style={style.balanceTypeText}>10 Points</Text>
-            <Button
-              title="Exchange"
-              textStyle={{ fontSize: 16 }}
-              buttonStyle={{
-                height: 40,
-                backgroundColor: Colors.primaryColor,
-                width: 120,
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 20,
-              }}
-              // onPress={() => null}
-            />
+            {!this.state.isLoading ?
+              <Button
+                title="Exchange"
+                textStyle={{ fontSize: 16 }}
+                buttonStyle={{
+                  height: 40,
+                  backgroundColor: Colors.primaryColor,
+                  width: 120,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: 20,
+                }}
+                onPress={() => this.handleExchange()}
+              /> :
+              <ActivityIndicator
+                animating={this.state.isLoading}
+                size={"large"}
+                color={Colors.primaryColor}
+              />
+            }
             <Text style={style.balanceTypeText}>10 Solve</Text>
           </View>
         </Animatable.View>
