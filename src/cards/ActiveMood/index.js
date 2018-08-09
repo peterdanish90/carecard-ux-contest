@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import * as Animatable from 'react-native-animatable';
 import { Button } from "react-native-elements";
-import { View, Text } from 'react-native';
+import { View, Text, Share } from 'react-native';
 import CardButtons from '../../components/CardButtons';
 import style from './style';
-import { animojis } from '../../local';
 import CaptionImage from '../../components/CaptionImage';
 import { CARDS_NAME } from '../../constant';
 import { Colors } from '../../theme';
@@ -40,13 +39,10 @@ class Reward extends Component {
   }
 
   handleShare = () => {
-    // this.setState({
-    //   isFlipping: true,
-    //   isFront: !this.state.isFront
-    // })
-    // setTimeout(() => {
-    //   this.setState({isFlipping: false})
-    // }, 1000)
+    const title = `Today I am ${this.state.myMood.name.toUpperCase()} ${this.state.animoji.name.toUpperCase()}`;
+    Share.share({
+      message: `${title}\n\n${this.state.myMood.message}`,
+    }).catch(err => console.log(err));
   }
 
   render() {
