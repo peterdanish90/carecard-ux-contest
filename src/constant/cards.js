@@ -8,7 +8,7 @@ export const CARDS_INFO = {
     desc: 'Scroll down and choose your current mood from the options available.',
   },
   active_mood: {
-    title: 'WHATS MY MOOD',
+    title: '',
     desc: 'See your recommendation for the mood selected. Tap View reward to see how much of the reward you get.',
   },
   reward: {
