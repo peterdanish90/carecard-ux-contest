@@ -48,9 +48,25 @@ class Reward extends Component {
       <View style={style.container}>
         <Animatable.View animation={this.state.isFlipping ? flip : ''} style={style.cardContainer} duration={1000}>
           {!this.state.isFlipping && (
-            <CardButtons flip={this.handleRotate}/>
+            <CardButtons
+              isShowTL
+              icon={"wallet"}
+              // flip={this.handleRotate}
+              onPressTRC= {this.handleRotate}
+              onPressBRC= {this.handleRotate}
+              onPressTLC= {() => this.props.navigation.navigate(CARDS_NAME.my_balance, { from: CARDS_NAME.reward })}
+              onPressBLC= {() => this.props.navigation.goBack()}
+            />
           )}
-          <Header title="TODAY'S REWARD" />
+          <Header
+            title="TODAY'S REWARD"
+            style={{
+              marginTop: 40,
+              height: 100,
+              justifyContent: 'flex-start',
+              paddingTop: 20,
+            }}
+          />
           <View style={style.earnPointContainer}>
             <View style={{ flexDirection: 'row' }}>
               <Text style={style.pointText}>{'1'}</Text>
@@ -73,7 +89,7 @@ class Reward extends Component {
                 justifyContent: 'center',
                 borderRadius: 20,
               }}
-              onPress={() => this.props.navigation.navigate(CARDS_NAME.my_balance)}
+              onPress={() => this.props.navigation.navigate(CARDS_NAME.my_balance, { from: CARDS_NAME.reward })}
             />
           </View>
         </Animatable.View>
