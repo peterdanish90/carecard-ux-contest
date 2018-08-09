@@ -18,11 +18,11 @@ export default class App extends React.Component {
     if (!this.state.fontLoaded) return null;
     return (
       <View style={styles.container}>
-        <Header
+        {/* <Header
           centerComponent={{ text: 'Care.Card Renderer', style: styles.title }}
           statusBarProps={{hidden: true}}
           backgroundColor="transparent"
-        />
+        /> */}
         <RootNavigator />
       </View>
     );
