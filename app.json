@@ -1,6 +1,11 @@
 {
   "expo": {
+    "name": "HAYFT",
+    "version": "1.0.0",
     "sdkVersion": "27.0.0",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "android": {
+      "package": "com.hayft.hayft"
+    }
   }
 }
