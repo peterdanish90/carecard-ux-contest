@@ -39,12 +39,30 @@ class Reward extends Component {
     }, 1000)
   }
 
+  handleShare = () => {
+    // this.setState({
+    //   isFlipping: true,
+    //   isFront: !this.state.isFront
+    // })
+    // setTimeout(() => {
+    //   this.setState({isFlipping: false})
+    // }, 1000)
+  }
+
   render() {
     return (
       <View style={style.container}>
         <Animatable.View animation={this.state.isFlipping ? flip : ''} style={style.cardContainer} duration={1000}>
           {!this.state.isFlipping && (
-            <CardButtons flip={this.handleRotate}/>
+            <CardButtons
+              isShowTL
+              icon={"share-variant"}
+              // flip={this.handleRotate}
+              onPressTRC= {this.handleRotate} // info
+              onPressBRC= {this.handleRotate} // flip
+              onPressTLC= {this.handleShare} // share
+              onPressBLC= {() => this.props.navigation.goBack()}
+            />
           )}
           <CaptionImage
             animoji={{
