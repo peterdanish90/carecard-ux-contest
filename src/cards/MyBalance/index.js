@@ -7,6 +7,8 @@ import style from './style';
 import { Colors } from '../../theme';
 import Header from '../../components/Header';
 import { CARDS_NAME } from '../../constant';
+import BackCard from '../../components/BackCard';
+import { CARDS_INFO } from '../../constant/cards';
 
 const flip = {
   0: {
@@ -46,7 +48,7 @@ class Reward extends Component {
     })
     setTimeout(() => {
       this.setState({isFlipping: false})
-    }, 1000)
+    }, 500)
   }
 
   handleExchange() {
@@ -76,7 +78,7 @@ class Reward extends Component {
     return (
       <View style={style.container}>
         <Animatable.View animation={this.state.isFlipping ? flip : ''} style={style.cardContainer} duration={1000}>
-          {!this.state.isFlipping && (
+          {this.state.isFront && (
             <CardButtons
               isShowFAIcon
               icon={"exchange"}
@@ -89,15 +91,23 @@ class Reward extends Component {
               }
             />
           )}
-          <Header
-            title="MY BALANCE"
-            style={{
-              marginTop: 40,
-              height: 100,
-              justifyContent: 'flex-start',
-              paddingTop: 20,
-            }}
-          />
+          {this.state.isFront ?
+            <Header
+              title={CARDS_INFO.my_balance.title}
+              style={{
+                marginTop: 40,
+                height: 100,
+                justifyContent: 'flex-start',
+                paddingTop: 20,
+              }}
+            /> :
+            <BackCard
+              title={CARDS_INFO.my_balance.title}
+              desc={CARDS_INFO.my_balance.desc}
+              onClose={this.handleRotate}
+            />
+          }
+          {this.state.isFront &&
           <View style={style.balanceContainer}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <Text style={style.balanceTypeIcon}>{'★'}</Text>
@@ -109,13 +119,15 @@ class Reward extends Component {
               <Text style={[style.balanceTypeText, { padding: 5 }]}>{this.state.solve}</Text>
               <Text style={style.balanceTypeText}>{'Solve'}</Text>
             </View>
-          </View>
+          </View>}
+          {this.state.isFront &&
           <View style={style.messageContainer}>
             <Text style={style.message}>
             Congrats! you have {Math.floor(this.state.points / 100.0) * 100} or more points,
             which can exchange into solve. {'\n'}
             Try it now!</Text>
-          </View>
+          </View>}
+          {this.state.isFront &&
           <View style={style.buttonContainer}>
             <Text style={style.balanceTypeText}>10 Points</Text>
             {!this.state.isLoading ?
@@ -139,7 +151,7 @@ class Reward extends Component {
               />
             }
             <Text style={style.balanceTypeText}>10 Solve</Text>
-          </View>
+          </View>}
         </Animatable.View>
       </View>
     )
