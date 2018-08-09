@@ -44,10 +44,21 @@ class ChooseAvatar extends Component {
       <View style={style.container}>
         <Animatable.View animation={this.state.isFlipping ? flip : ''} style={style.cardContainer} duration={1000}>
           {!this.state.isFlipping && (
-            <CardButtons flip={this.handleRotate}/>
+            <CardButtons
+              // flip={this.handleRotate}
+              onPressTRC= {this.handleRotate} // info
+              onPressBRC= {this.handleRotate} // flip
+              onPressBLC= {() => this.props.navigation.navigate(CARDS_NAME.my_balance, { from: CARDS_NAME.choose_avatar })}
+            />
           )}
           <Header
             title="CHOOSE YOUR AVATAR"
+            style={{
+              marginTop: 40,
+              height: 100,
+              justifyContent: 'flex-start',
+              paddingTop: 20,
+            }}
           />
           <View
             style={{
@@ -84,3 +95,5 @@ class ChooseAvatar extends Component {
 }
 
 export default ChooseAvatar;
+// https://exp.host/@vinaysinghsatna01/hayft
+// https://expo.io/artifacts/645c0c52-5558-4393-8058-c0f9b2540dbf
